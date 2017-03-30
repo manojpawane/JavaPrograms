@@ -4,13 +4,11 @@ class Coupon
 	public static void main(String [] args)
 		{
 			Scanner sc=new Scanner(System.in);
-
 			System.out.println("Enter the number of Coupons need to be generated:");
 			int n=sc.nextInt();
 			int j=0;
 			int i=0;
-			int k;
-			
+			int k;			
 			
 			int [] arr=new int[100];
 
@@ -26,28 +24,26 @@ class Coupon
 			    while(arr[i]==x)
 				{
 					flag=1;
-					break;
-					
+					break;					
 
-				}
-			     
+				}			     
 							
 			}	
 		               if(flag==0)
-				{      
-				
+				{     				
 					arr[j]=x;
 					j++;
 				
 				}
-
-
-					
 				
-
-		}
+	}
 	System.out.println("No. of Random Call:"+k);
 	System.out.println("No. of code stored:"+j);
+        for(int l=0;l<j;l++)
+	{
+
+		System.out.println(arr[l]);
+	}
 			
 			
 			 

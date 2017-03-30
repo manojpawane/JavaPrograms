@@ -18,7 +18,7 @@ class Gambler
 			System.out.println("Enter the Goal Amount:");
 			int goal=sc.nextInt();
 			
-			while(count<bet && prize<goal && stake!=0)
+			while(count<bet && stake<goal && stake!=0)
 			{
 
 				double gamble=Math.random();
@@ -26,7 +26,7 @@ class Gambler
 				if(gamble>0.5)
 				{
 					win++;
-					prize=prize+2;
+					stake=stake+2;
 					count++;
 
 
@@ -49,7 +49,7 @@ class Gambler
 			System.out.println("Percentage of Winning:"+winpercent);
 			System.out.println("Percentage of Lossing:"+losspercent);
 			System.out.println("Stake:"+stake);
-			System.out.println("Prize:"+prize);
+			
 			System.out.println("Goal:"+goal);
 		}
 	
