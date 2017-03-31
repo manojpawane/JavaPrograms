@@ -10,7 +10,7 @@ class Coupon
 			int i=0;
 			int k;			
 			
-			int [] arr=new int[100];
+			int [] arr=new int[n];
 
 		for(k=0;j<n;k++)
 		{
@@ -21,7 +21,7 @@ class Coupon
 			for(i=0;i<j;i++)
 			{
 			
-			    while(arr[i]==x)
+			    if(arr[i]==x)
 				{
 					flag=1;
 					break;					
