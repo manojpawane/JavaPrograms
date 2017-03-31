@@ -6,8 +6,6 @@ static int row;
 static int count=0;
 static int col;
 static int data=0;
-static int yu=0;
-static int ka=0;
 static int flag=0;
 static int row1;
 static int col1; 
@@ -56,7 +54,7 @@ public static void main(String [] args)
     				(((a[1][0] =='X') && (a[1][1] =='X')&& (a[1][2]) =='X'))||
      				(((a[2][0] =='X') && (a[2][1] =='X')&& (a[2][2]) =='X'))||
       				(((a[0][0] =='X') && (a[1][1] =='X')&& (a[2][2]) =='X'))||
-       				(((a[2][0] =='X') && (a[2][1] =='X')&& (a[0][2]) =='X')))
+       				(((a[2][0] =='X') && (a[1][1] =='X')&& (a[0][2]) =='X')))
         			{
        				 System.out.println("You Win...");
        				 return;
@@ -70,7 +68,7 @@ public static void main(String [] args)
     				(((a[1][0] =='O') && (a[1][1] =='O')&& (a[1][2]) =='O'))||
      				(((a[2][0] =='O') && (a[2][1] =='O')&& (a[2][2]) =='O'))||
       				(((a[0][0] =='O') && (a[1][1] =='O')&& (a[2][2]) =='O'))||
-       				(((a[2][0] =='O') && (a[2][1] =='O')&& (a[0][2]) =='O')))
+       				(((a[2][0] =='O') && (a[1][1] =='O')&& (a[0][2]) =='O')))
       			 	{
       			 	  System.out.println("You Loose...");
       			 	  return;
@@ -101,12 +99,12 @@ public static void main(String [] args)
     				(((a[1][0] =='X') && (a[1][1] =='X')&& (a[1][2]) =='X'))||
      				(((a[2][0] =='X') && (a[2][1] =='X')&& (a[2][2]) =='X'))||
       				(((a[0][0] =='X') && (a[1][1] =='X')&& (a[2][2]) =='X'))||
-       				(((a[2][0] =='X') && (a[2][1] =='X')&& (a[0][2]) =='X')))
+       				(((a[2][0] =='X') && (a[1][1] =='X')&& (a[0][2]) =='X')))
         			{
        				 System.out.println("You Win...");
        				 return;
       				}
-        
+        /***************************************************loose************************************************/
         
       		       		else if( (((a[0][0] =='O') && (a[1][0] =='O')&& (a[2][0]) =='O'))||
  	         		(((a[0][1] =='O') && (a[1][1] =='O')&& (a[2][1]) =='O'))||
@@ -115,12 +113,13 @@ public static void main(String [] args)
     				(((a[1][0] =='O') && (a[1][1] =='O')&& (a[1][2]) =='O'))||
      				(((a[2][0] =='O') && (a[2][1] =='O')&& (a[2][2]) =='O'))||
       				(((a[0][0] =='O') && (a[1][1] =='O')&& (a[2][2]) =='O'))||
-       				(((a[2][0] =='O') && (a[2][1] =='O')&& (a[0][2]) =='O')))
+       				(((a[2][0] =='O') && (a[1][1] =='O')&& (a[0][2]) =='O')))
       			 	{
       			 	  System.out.println("You Loose...");
       			 	  return;
      				}
 			}
+/*************************************Match Draw************************************************************************/			
 			else
 			{	
 			    System.out.println("><><><><>GAME OVER><><<><><");
@@ -141,7 +140,7 @@ public static void main(String [] args)
 				
 			        }
 			        
-			System.out.println("match draw");
+			System.out.println("Match draw...");
 			return;
 			}
 
@@ -149,11 +148,11 @@ public static void main(String [] args)
 	
 
 
-return;
+
 }
 
 
-
+/************************************************user function*****************************************************************/
 
 	static void user()
 	{
@@ -168,11 +167,11 @@ return;
 	
 		while(a[row][col]!='X'&& a[row][col]!='O')
 		{
-			//System.out.println("*************\n\n");
+			
 			
 			a[row][col]='X';
 			b[row][col]=true;
-			//System.out.println("Count*********"+count);
+			
 			count++;
 			flag=1;
 			break;
@@ -192,7 +191,7 @@ return;
 
 	static void comp()
 	{
-	//Scanner sc=new Scanner(System.in);
+	
 	Random r1=new Random();
 	row1=r1.nextInt(3);
 	col1=r1.nextInt(3);
@@ -200,11 +199,10 @@ return;
 	
 	while(a[row1][col1]!='O'&& a[row1][col1]!='X')
 		{
-		//System.out.println("***********");
+		
 	                a[row1][col1]='O';
-	                b[row1][col1]=false;
-	                //System.out.println("Count Computer*********"+count);
-			
+	                
+	                			
 			count++;	
 			data=1;
 			break;
