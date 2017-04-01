@@ -10,7 +10,7 @@ static int flag=0;
 static int row1;
 static int col1; 
 static char [][] a=new char[3][3];
-static boolean[][] b=new boolean[3][3];
+//static boolean[][] b=new boolean[3][3];
 public static void main(String [] args)
 {
 	System.out.println("-----------------");
@@ -170,7 +170,7 @@ public static void main(String [] args)
 			
 			
 			a[row][col]='X';
-			b[row][col]=true;
+			
 			
 			count++;
 			flag=1;
@@ -188,7 +188,7 @@ public static void main(String [] args)
 		
 
 	}
-
+/*************************************************Comp function***************************************************************/
 	static void comp()
 	{
 	
