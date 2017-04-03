@@ -160,9 +160,12 @@ public static void main(String [] args)
 	System.out.println("Enter the Value of ROW(0-2)");
 	row=sc.nextInt();
 	
+	
+	
 
 	System.out.println("Enter the Value of COLOUMN(0-2)");
 	col=sc.nextInt();
+	
 	flag=0;
 	
 		while(a[row][col]!='X'&& a[row][col]!='O')
