@@ -1,0 +1,1 @@
+apple,cat,fox,dog,goat,hat,iron,elephant,joker,ball
