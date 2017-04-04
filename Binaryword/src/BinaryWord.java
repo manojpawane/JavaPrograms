@@ -17,6 +17,7 @@ public class BinaryWord {
         int content;
         while ((content = fis.read()) != -1)
         {
+        	//System.out.println(content);
                // convert to char and display it
                str += (char) content;
         }
