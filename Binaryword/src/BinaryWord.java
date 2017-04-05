@@ -42,7 +42,10 @@ public class BinaryWord {
 	   String word = sc.next();
 
 	  	int result = binarySearch(strArray, word);
-		System.out.println("Your searched word is at index "+result);
+		if(result==-1)
+			System.out.println("Not found");
+		else
+			System.out.println("Your searched word is at index "+result);
 		fis.close();
 		sc.close();
 	 }
@@ -51,8 +54,7 @@ public class BinaryWord {
 	  {
 	      int first = 0;
 	      int last = array.length - 1;
-	  	 if(first > last) System.out.println("No words !");
-		    
+	  	
 			while(first < last)
 			{
 				int mid = first + (last - first)/2;

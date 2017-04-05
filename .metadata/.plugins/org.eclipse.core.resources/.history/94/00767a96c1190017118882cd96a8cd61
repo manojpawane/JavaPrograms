@@ -1,0 +1,230 @@
+package utility;
+
+
+
+import java.util.*;
+public class Utility 
+{
+	public static void main(String[] args) 
+	{
+		int ch=0;
+		char choice;
+		//BubbleSort bs=new BubbleSort();
+		Scanner sc=new Scanner(System.in);
+		do
+		{
+			System.out.println("1.Binary Search Method for Integer:");
+			System.out.println("2.Binary Search Method for String");
+			System.out.println("3.insertionSort method for integer");
+			System.out.println("4.insertionSort method for String");
+			System.out.println("5.bubbleSort method for integer");
+			System.out.println("6.bubbleSort method for String");
+			System.out.println("Please Enter your choice");
+			ch=sc.nextInt();
+			switch(ch)
+			{
+			case 1:binaryint();
+				   break;
+			
+			case 2:System.out.println("Enter the size of Array:");
+				   int i=sc.nextInt();
+				   String [] binsr=new String[i];
+				   System.out.println("Enter the Words in Array");
+				   for(int s=0;s<i;s++)
+				   {
+					   binsr[s]=sc.next();
+				   }
+				   binarystr(binsr,i);
+				   break;
+		//	case 3:insertionint();
+		//			break;
+		//	case 4:insertionstr();
+		//			break;
+			case 5:System.out.println("Enter the Size of Array:");
+				   //Scanner sc=new Scanner(System.in);
+				   int n=sc.nextInt();
+				   int []a=new int[n];
+				   System.out.println("Enter the Elements in Array:");
+				   for(int d=0;d<n;d++)
+				   {
+					a[d]=sc.nextInt();
+					
+				    }
+				
+				
+				
+				
+				    bubbleint(a,n);
+				    System.out.println("After Sorting....");
+					for(int f=0;f<n;f++)
+					{
+						
+						System.out.println(a[f]);
+					}
+					break;
+			case 6: 
+					System.out.println("Enter the Size of Array:");
+					int bss=sc.nextInt();
+					String [] arr2=new String[bss];
+					System.out.println("Enter the Words in array");
+					for(int g=0;g<bss;g++)
+					{
+						arr2[g]=sc.next();
+						
+						
+					}
+					bubblestr(arr2, bss);
+					
+					
+					
+					for(int h=0;h<bss;h++)
+					{
+						System.out.println(arr2[h]);
+						
+						
+					}
+					break;
+			
+			
+			}
+			
+			System.out.println("Do you want to Continue:Y or N");
+			choice =sc.next().charAt(0);
+		}
+		while(choice=='Y' || choice =='y');
+		sc.close();
+	}
+	
+	static void binaryint()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of array:");
+		int n=sc.nextInt();
+		int []arr=new int[10];
+		System.out.println("Enter the Elements in Array:");
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=sc.nextInt();
+			
+			
+		}
+		bubbleint(arr,n);
+		int low=0;
+		int high=n;
+		int mid=(low+high)/2;
+		for(int j=0;j<n;j++)
+		System.out.println(arr[j]);
+		
+		System.out.println("Enter the Number you need to search:");
+		int m=sc.nextInt();
+		
+		while(m!=arr[mid])
+		{
+			
+			if(m<=arr[mid])
+			{
+			high=mid;
+			mid=(low+high)/2;
+			}
+			
+			else
+			{
+				
+				low=mid;
+				mid=(low+high)/2;
+			}
+		
+		}
+		System.out.println("The Number  is found at postion:"+(mid));
+		
+		sc.close();
+		
+	}
+	
+	static void bubbleint(int []arr1, int l)
+	{
+		
+		BubbleSort b1=new BubbleSort();
+		b1.bubble(arr1,l);
+		
+	}
+	
+	static void bubblestr(String [] arrb2, int j)
+	{
+		for(int i=0;i<j-1;i++)
+		{
+			for(int k=0;k<j-i-1;k++)
+			{
+				if(arrb2[k].compareTo(arrb2[k+1])>0)
+				{
+					String temp=arrb2[k];
+					arrb2[k]=arrb2[k+1];
+					arrb2[k+1]=temp;
+				}
+				
+				
+			}
+			
+		}
+		
+		
+		
+		
+	}
+	
+	
+	static void binarystr(String []k, int j)
+	{
+		bubblestr(k,j);
+		for(int w=0;w<j;w++)
+		{
+			System.out.println(k[w]);
+		}
+		int low=0;
+		int high=j;
+		int mid=(low+high)/2;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Word you want to Search:");
+		String m=sc.next();
+		
+		while(m!=k[mid])
+		{
+			if(m.compareTo(k[mid])<0)
+			{
+				high=mid;
+				mid=(low+high)/2;
+				
+				System.out.println("low");
+			}
+			
+			
+		
+			else 
+			{
+				low=mid;
+				mid=(low+high)/2;
+				System.out.println("High");
+			}
+			
+			
+		}
+		 sc.close();
+		 if(m.compareTo(k[mid])==0)
+			{
+				System.out.println("Word Found at Postion "+mid);
+				return;
+				
+			}
+		
+		
+		
+			else
+			{
+			System.out.println("Word Not Found ");
+			return;
+			}
+		
+		
+	}
+
+}

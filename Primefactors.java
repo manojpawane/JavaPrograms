@@ -9,7 +9,7 @@ class Primefactors
 		
 		
 	
-		for(int i=2;i<n;i++)
+		for(int i=2;i<n/2;i++)
 		{
 			//System.out.println("i: "+i);
 			if(n%i==0)
