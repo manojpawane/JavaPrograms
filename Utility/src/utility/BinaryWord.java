@@ -1,3 +1,4 @@
+package utility;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,7 +20,9 @@ public class BinaryWord {
         {
         	//System.out.println(content);
                // convert to char and display it
-               str += (char) content;
+        	str=str+(char)content;
+        	
+               //str += (char) content;
         }
 	   
 	   System.out.println(str);

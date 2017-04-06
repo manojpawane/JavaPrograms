@@ -1,0 +1,11 @@
+package list;
+
+public class Ordered 
+{
+	public static void main(String[] args) 
+	{
+		
+		
+	}
+
+}

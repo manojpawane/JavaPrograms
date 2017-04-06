@@ -2,13 +2,13 @@
 <section name="Workbench">
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item value="256" key="DIALOG_X_ORIGIN"/>
-		<item value="12" key="DIALOG_Y_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item value="142" key="dialogHeight"/>
-		<item value="242" key="dialogWidth"/>
+		<item value="118" key="dialogHeight"/>
+		<item value="218" key="dialogWidth"/>
 		<list key="textEntries">
-			<item value="2"/>
+			<item value="3"/>
 			<item value="1"/>
 		</list>
 		<list key="orderedElements">
@@ -21,6 +21,7 @@
 		</list>
 		<list key="textArray">
 			<item value="package"/>
+			<item value="packa"/>
 			<item value="pa"/>
 			<item value="consol"/>
 		</list>

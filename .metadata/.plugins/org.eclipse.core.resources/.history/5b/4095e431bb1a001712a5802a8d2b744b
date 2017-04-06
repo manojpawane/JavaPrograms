@@ -1,0 +1,13 @@
+package list;
+import java.io.FileInputStream;
+import java.util.*;
+public class Ordered 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		File f=new File("/home/bridgeit/JavaPrograms/list/src/list/data.txt");
+		FileInputStream f1=new FileInputStream(f);
+	}
+
+}

@@ -1,0 +1,16 @@
+package stack;
+import  java.util.*;
+public class Expression 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		Stack s=new Stack();
+		
+		System.out.println("Enter the Expression:");
+		
+		
+	}
+
+}
