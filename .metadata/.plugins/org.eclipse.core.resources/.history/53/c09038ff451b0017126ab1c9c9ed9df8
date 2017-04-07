@@ -1,0 +1,23 @@
+package stack;
+
+import java.util.LinkedList;
+
+public class Palindrome 
+{
+	public static void main(String[] args) 
+	{   int ch=0;
+		LinkedList<String> al=new LinkedList<String>();
+		
+		do
+		{
+			System.out.println("1. Enter Character");
+			System.out.println("2. Delete Character");
+			System.out.println("3. Check Palindrome");
+			System.out.println();
+			
+		}
+		while(ch!=5);
+		
+	}
+
+}

@@ -1,0 +1,21 @@
+package stack;
+import java.util.*;
+public class BankingCashCounter 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in)
+		do
+		{
+			System.out.println("1. Add to Deposit");
+			System.out.println("2. Add To Withdraw");
+			System.out.println("3. Check Balance with Bank");
+			
+		}
+		
+		
+	}
+	
+	
+
+}

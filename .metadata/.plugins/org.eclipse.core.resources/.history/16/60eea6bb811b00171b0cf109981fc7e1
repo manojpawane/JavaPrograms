@@ -1,0 +1,98 @@
+package stack;
+import java.util.*;
+public class BankingCashCounter 
+{
+	 static String name="";
+	 static int acc_no=0;
+	 static double salary=0;
+	static int i=0;
+	Queue q=new LinkedList();
+	Bank s[]=new Bank[10];
+	
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		//Bank b1=new Bank();
+		
+		double balance=100000;
+		int ch=0;
+		
+		
+		System.out.println();
+		do
+		{
+			
+			System.out.println("1. Deposit");
+			System.out.println("2. Withdraw");
+			
+			System.out.println("3. Remove Deposit");
+			System.out.println("4. Remove Withdrawl");
+			System.out.println("5. Check Balance with Bank");
+			ch=sc.nextInt();
+			
+			switch(ch)
+			{
+			case 1:deposit();
+					break;
+			case 2:withdraw();
+					break;
+			case 4:remove_deposit();
+					break;
+			case 5:remove_withdraw();
+					break;
+			case 6:System.out.println("Total Cash:"+balance);
+			
+			
+			}
+			
+		}
+		while(ch!=4);
+		
+	}
+	
+	 static void deposit()
+	{
+	  	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter Your Name");
+		 name=sc.next();
+		
+		System.out.println("Enter your Account No.");
+		 acc_no=sc.nextInt();
+		
+		System.out.println("Enter your Balance");
+		salary=sc.nextDouble();
+	
+		
+		=(Bank) new Bank(acc_no,name,salary);
+		enqueue(s[i]);
+	}
+    
+    
+     static void  display_details()
+    {
+    	System.out.println("Welcome, "+name);
+    	System.out.println("Your Account No. is:"+acc_no);
+    	System.out.println("Your Current Balance is:"+salary);
+    	System.out.println("Select type of Transactions:");
+    	
+    	
+    }
+	
+
+}
+
+
+class Bank
+{  
+    static int acc_no;  
+    static String name;  
+    static double balance;  
+    
+    
+    Bank(int Acc_no,String Name,double Balance)
+    {  
+     acc_no=Acc_no;  
+     name=Name;  
+     balance=Balance;  
+    }  
+  }  

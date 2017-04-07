@@ -1,0 +1,43 @@
+package stack;
+import java.util.*;
+public class BankingCashCounter 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		Queue q=new LinkedList();
+		double balance=100000;
+		int ch=0;
+		do
+		{
+			System.out.println("1. Deposit");
+			System.out.println("2. Withdraw");
+			System.out.println("3. Check Balance with Bank");
+			ch=sc.nextInt();
+			
+			switch(ch)
+			{
+			case 1:deposit();
+					break;
+			case 2:withdraw();
+					break;
+			case 3:System.out.println("Total Cash:"+balance);
+			
+			
+			}
+			
+		}
+		while(ch!=4);
+		
+	}
+	
+	static void deposit()
+	{
+		
+		
+		
+	}
+	
+	
+
+}
