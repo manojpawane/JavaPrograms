@@ -54,18 +54,9 @@ public class VendingMachine
 			}
 		
 		
-        
-		System.out.println("Rs. 1000 notes required:"+vm.n1000);
-		System.out.println("Rs. 500 notes required:"+vm.n500);
-		System.out.println("Rs. 100 notes required:"+vm.n100);
-		System.out.println("Rs. 50 notes required:"+vm.n50);
-		System.out.println("Rs. 10 notes required:"+vm.n10);
-		System.out.println("Rs. 5  coin required:"+vm.n5);
-		System.out.println("Rs. 2  coinrequired:"+vm.n2);
-		System.out.println("Rs. 1 coin required:"+vm.n1);
-		System.out.println();
-		int n=vm.n1000+vm.n500+vm.n100+vm.n50+vm.n10+vm.n5+vm.n2+vm.n1;
+        int n=vm.n1000+vm.n500+vm.n100+vm.n50+vm.n10+vm.n5+vm.n2+vm.n1;
 		System.out.println("The Minimum Notes Required are:"+n);
+		
 	}
 	
 	
