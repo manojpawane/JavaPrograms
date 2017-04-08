@@ -56,8 +56,6 @@ public class BankingCashCounter {
 		salary = sc.nextDouble();
 		System.out.println("Enter the Amount you have to withdraw:");
 		double sal = sc.nextDouble();
-		if(sal<salary && sal<Bank_balance)
-		{
 		
 			salary = salary - sal;
 			Bank_balance =Bank_balance - sal;
@@ -67,7 +65,7 @@ public class BankingCashCounter {
 		q.add(s[i]);
 		i++;
 
-		}
+		
 		
 		//	System.out.println("No sufficient balance");
 
@@ -119,8 +117,8 @@ void utility()
 			// System.out.println(acc_no+" "+name+" "+balance);
 			// }
 */			break;
-		default:return;
-				
+		default:
+
 		}
 
 	} while (ch != 6);	

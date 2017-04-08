@@ -5,8 +5,8 @@ import java.util.*;
 public class BankingCashCounter {
 	String name = "";
 	int acc_no = 0;
-	double salary ;
-	int i = 0;
+	double salary = 25000;
+	static int i = 0;
 	Queue q = new LinkedList();
 	Bank s[] = new Bank[10];
 	double Bank_balance = 100000;
@@ -31,16 +31,15 @@ public class BankingCashCounter {
 		System.out.println("Enter your Balance");
 		salary = sc.nextDouble();
 
-		System.out.println("Enter the Amount you have to deposit:");
-		double sal = sc.nextDouble();
-		salary = sal + salary;
-		Bank_balance = sal + Bank_balance;
-
 		s[i] = new Bank(acc_no, name, salary);
 
 		q.add(s[i]);
 		i++;
 
+		System.out.println("Enter the Amount you have to deposit:");
+		double sal = sc.nextDouble();
+		salary = sal + salary;
+		Bank_balance = sal + Bank_balance;
 
 	}
 
@@ -54,24 +53,21 @@ public class BankingCashCounter {
 
 		System.out.println("Enter your Balance");
 		salary = sc.nextDouble();
-		System.out.println("Enter the Amount you have to withdraw:");
-		double sal = sc.nextDouble();
-		if(sal<salary && sal<Bank_balance)
-		{
-		
-			salary = salary - sal;
-			Bank_balance =Bank_balance - sal;
 
 		s[i] = new Bank(acc_no, name, salary);
 
 		q.add(s[i]);
 		i++;
 
-		}
-		
-		//	System.out.println("No sufficient balance");
+		System.out.println("Enter the Amount you have to withdraw:");
+		double sal = sc.nextDouble();
+		if (salary > sal && Bank_balance >= 0) {
+			salary = salary - sal;
+			Bank_balance =Bank_balance - sal;
+		} else {
+			System.out.println("No sufficient balance");
 
-		
+		}
 
 	}
 
@@ -119,8 +115,8 @@ void utility()
 			// System.out.println(acc_no+" "+name+" "+balance);
 			// }
 */			break;
-		default:return;
-				
+		default:
+
 		}
 
 	} while (ch != 6);	
@@ -130,22 +126,18 @@ void utility()
 }
 }
 
-class Bank 
-{
+class Bank {
 	 int acc_no;
 	 String name;
 	 double balance;
-     double salary;
-	 Bank(int Acc_no, String Name, double Balance) 
-	 {
+
+	Bank(int Acc_no, String Name, double Balance) {
 		acc_no = Acc_no;
 		name = Name;
 		balance = Balance;
-		
-     }
+	}
 
-	public String toString() 
-	{
+	public String toString() {
 		return acc_no + "\t\t" + name + "\t\t" + balance;
 
 	}

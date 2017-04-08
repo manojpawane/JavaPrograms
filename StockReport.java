@@ -61,7 +61,7 @@ public class StockReport
 	
 	}
 	
-	System.out.println("Share Name   "+"No. of Share   "+"Cost of Share   "+"Tot Amt Share   ");
+		System.out.println("Share Name   "+"No. of Share   "+"Cost of Share   "+"Tot Amt Share   ");
 	
 	for(int i=0;i<n;i++)
 	{
