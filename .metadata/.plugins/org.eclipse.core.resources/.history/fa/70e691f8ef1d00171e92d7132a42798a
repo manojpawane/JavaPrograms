@@ -39,7 +39,7 @@ public class HashFunction
 		for(int i=0;i<10;i++)
 		{
 			list[i]=new LinkedList<Integer>();
-			//Map1.put(i, list[i]);
+		
 		}
 		
 		for(int i=0;i<results.length;i++)
@@ -47,7 +47,11 @@ public class HashFunction
 			slot=results[i]%11;
 		
 			
-	
+		/*	if(list[slot]==null)
+			{
+				list[slot]=new LinkedList<Integer>();
+				Map1.put(slot, list[slot]);
+			}*/
 			Map1.put(i, list[i]);
 			list[slot].add(results[i]);
 			
