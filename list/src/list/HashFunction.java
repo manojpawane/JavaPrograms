@@ -48,7 +48,7 @@ public class HashFunction
 		
 			
 	
-			Map1.put(i, list[i]);
+			Map1.put(slot, list[slot]);
 			list[slot].add(results[i]);
 			
 		}

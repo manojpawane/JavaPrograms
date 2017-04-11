@@ -39,15 +39,7 @@ public class Ordered
 		   }
 		   System.out.println("\n\n");
 		   
-	    // System.out.println("\n\n");
-	  /*   Collections.sort(al);
-	     
-	       Iterator<String> itr3=al.iterator();
-		   while (itr3.hasNext()) 
-		   {
-		   System.out.println(itr3.next());
-			
-		   }*/
+	 
 		   
 	     System.out.println("Enter the number");
 	     String k=sc.next();

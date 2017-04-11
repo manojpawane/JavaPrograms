@@ -1,0 +1,25 @@
+package list;
+
+import org.json.simple.parser.JSONParser;
+
+public class json 
+{
+	public static void main(String[] args) 
+	{
+		JSONParser parser=new JSONParser();
+		try
+		{
+			
+			
+			
+			
+			
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+	}
+
+}
