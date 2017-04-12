@@ -1,54 +1,33 @@
 package list;
 
-import org.json.simple.parser.JSONParser;
-
+import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Iterator;
+import java.io.IOException;
 
-import org.json.simple.*;
-public class json 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class json
 {
-	public static void main(String[] args) 
-	{
-		JSONParser parser=new JSONParser();
-		try
+  public static void main(String[] args) throws FileNotFoundException, IOException, ParseException 
+  {
+	
+
+	    JSONParser parser=new JSONParser();
+	 
+		Object obj=parser.parse(new FileReader("/home/bridgeit/JavaPrograms/list/src/list/prop.json"));
+		JSONObject jsonobj=(JSONObject) obj;
+		JSONArray jsonarr=(JSONArray) jsonobj.get("data");
+		
+		for(int i=0;i<jsonarr.size();i++)
 		{
-			Object obj=parser.parse(new FileReader("/home/bridgeit/JavaPrograms/list/src/list/properties.txt"));
-						
-			JSONObject jsonobj=(JSONObject) obj;
-			JSONArray ricedetails=(JSONArray) jsonobj.get("Rice");
-			Iterator iterator=ricedetails.iterator();
-			while(iterator.hasNext())
-			{
-				System.out.println(iterator.next());
-				
-			}
-			System.out.println("\n\n");
-			
-			JSONArray wheatdetails=(JSONArray) jsonobj.get("Wheat");
-			Iterator iterator1=wheatdetails.iterator();
-			while(iterator1.hasNext())
-			{
-				System.out.println(iterator1.next());
-				
-			}
-			System.out.println("\n\n");
-			
-			
-			JSONArray pulsesdetails=(JSONArray) jsonobj.get("pulses");
-			Iterator iterator2=pulsesdetails.iterator();
-			while(iterator2.hasNext())
-			{
-				System.out.println(iterator2.next());
-			
-			}
-			
-		}
-		catch(Exception e)
-		{
-			e.getMessage();
+			JSONObject jobj=(JSONObject) jsonarr.get(i);
+			System.out.println(jobj);
 		}
 		
+	
 	}
 
-}
+  }

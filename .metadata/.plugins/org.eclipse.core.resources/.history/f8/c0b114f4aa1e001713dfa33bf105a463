@@ -1,0 +1,12 @@
+{"data":[
+
+{"Rice":[{"name:Basmati","weight:10","price:45"},
+        {"name:Indrayani","weight:20","price:35"},
+        {"name:Kolam","weight:15","price:40"}
+        ]},
+"Wheat":["name:Mahalaxmi Brand","weight:5","price:30"],
+"pulses":["name:dry beans","weight:2","price:100"]
+  
+  
+  
+} 
