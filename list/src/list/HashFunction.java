@@ -39,6 +39,8 @@ public class HashFunction
 		for(int i=0;i<10;i++)
 		{
 			list[i]=new LinkedList<Integer>();
+			
+			
 			//Map1.put(i, list[i]);
 		}
 		
@@ -50,6 +52,7 @@ public class HashFunction
 	
 			Map1.put(slot, list[slot]);
 			list[slot].add(results[i]);
+			
 			
 		}
 		System.out.println("Hash Map:"+Map1);
@@ -67,14 +70,11 @@ public class HashFunction
 		}
 		else
 		{
-			/*if(list[k]==null)
-			{
-				list[k]=new LinkedList<Integer>();
-				Map1.put(k, list[k]);
-			}*/
+		
 			Map1.put(k, list[k]);
 			
 			list[k].add(num);
+			
 		}
 		
 		

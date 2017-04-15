@@ -1,0 +1,50 @@
+package com.bridgelabz.controller;
+
+import com.bridgelabz.implementation.AddressBook;
+import com.bridgelabz.service.Service;
+
+public class Controller 
+{
+	
+		Service service=new AddressBook();
+		void addperson()
+		{
+		service.addperson();
+		
+		}
+		/*void search()
+		{
+			ab.search();
+		}*/
+		void display()
+		{
+		//Service service=new AddressBook();
+		service.display();
+		}
+		
+		void search()
+		{
+			service.search();
+		}
+		
+		void delete()
+		{
+			service.delete();
+		}
+
+		void update()
+		{
+			service.update();
+		}
+		void sortbyname()
+		{
+			service.sortbyzip();
+		}
+		
+		void sortbyzip()
+		{
+			service.sortbyzip();
+		}
+	
+
+}

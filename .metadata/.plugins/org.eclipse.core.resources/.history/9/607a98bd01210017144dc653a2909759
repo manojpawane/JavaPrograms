@@ -1,0 +1,43 @@
+package com.bridgelabz.model;
+
+import java.util.Scanner;
+
+public class Application 
+{
+	public static void main(String[] args) 
+	{
+		int ch=0;
+		Controller controller=new Controller();
+		Scanner sc=new Scanner(System.in);
+		do
+		{
+			
+			System.out.println("1.Add");
+			System.out.println("2.Display");
+			System.out.println("3.Search");
+			System.out.println("4.Remove Contact");
+			 ch=sc.nextInt();
+			
+			switch(ch)
+			{
+			case 1:controller.addperson();
+			       break;
+			case 2:controller.display();
+				   break;
+			case 3:controller.search();
+			       break;
+			case 4:controller.delete();
+				    break;
+			case 5:controller.update();
+					break;
+				   
+			}
+			
+		}
+		while(ch!=6);
+		
+		//controller.addperson();
+		
+	}
+
+}

@@ -1,0 +1,27 @@
+package com.bridgelabz.model;
+
+public class Person 
+{
+	
+
+	
+	private Person(String firstname, String lastname, String address, String city, String state, String zip,
+			String phone) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.phone = phone;
+	}
+	private String firstname;
+	private String lastname;
+	private String address;
+	private String city;
+	private String state;
+	private String zip;
+	private String phone;
+
+}

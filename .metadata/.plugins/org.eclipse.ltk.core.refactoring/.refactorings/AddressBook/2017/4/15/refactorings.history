@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;AddressBook/src/com/bridgelabz/implmentation&apos; to &apos;implementation&apos;" description="Rename resource &apos;implmentation&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/bridgelabz/implmentation" name="implementation" stamp="1492242655166" updateReferences="true"/>
+</session>

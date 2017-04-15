@@ -1,0 +1,20 @@
+package com.bridgelabz.model;
+
+public class Controller 
+{
+	AddressBook ab=new AddressBook();
+	void addperson()
+	{
+		Service service=new AddressBook();
+		service.addperson();
+	}
+	/*void search()
+	{
+		ab.search();
+	}*/
+	void display()
+	{
+		ab.display();
+	}
+
+}

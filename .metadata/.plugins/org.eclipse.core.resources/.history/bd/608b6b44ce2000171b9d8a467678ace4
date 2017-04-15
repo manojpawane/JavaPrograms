@@ -1,0 +1,7 @@
+package com.bridgelabz.model;
+
+public interface Service 
+{
+	void addperson();
+
+}
