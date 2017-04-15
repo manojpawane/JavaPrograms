@@ -242,7 +242,7 @@ public class AddressBook implements Service {
 	}
 
 	public void sortbyname() {
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
+		for (int select_key = 0; select_key < i; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
 
@@ -264,7 +264,7 @@ public class AddressBook implements Service {
 
 	public void sortbyzip() {
 		{
-			for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
+			for (int select_key = 0; select_key < i; select_key++) {
 				System.out.println(select_key + " " + addressbook[select_key]);
 			}
 
@@ -289,10 +289,10 @@ public class AddressBook implements Service {
 	public void createaddressbook() {
 
 		System.out.println("Enter the Name of Address Book you need to create");
-		addressbook[numberofaddressbook] = scanner.next();
+		addressbook[i] = scanner.next();
 
-		map.put(addressbook[numberofaddressbook], new LinkedList<Person>());
-		numberofaddressbook++;
+		map.put(addressbook[i], new LinkedList<Person>());
+		i++;
 		System.out.println("Address Book Created");
 
 	}

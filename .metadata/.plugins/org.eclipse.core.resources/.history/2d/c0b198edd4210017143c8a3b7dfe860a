@@ -9,7 +9,7 @@ import com.bridgelabz.service.Service;
 import java.io.File;
 
 public class AddressBook implements Service {
-	int numberofaddressbook = 0;
+	int i = 0;
 	List<Person> list = new LinkedList<Person>();
 	Map<String, List<Person>> map = new HashMap<String, List<Person>>();
 
@@ -24,7 +24,7 @@ public class AddressBook implements Service {
 	@Override
 
 	public void addperson() {
-		if (numberofaddressbook == 0) {
+		if (i == 0) {
 			System.out.println("There is No Address Book Present, Do you want to create than press 1...! ");
 			int press = scanner.nextInt();
 
@@ -37,7 +37,7 @@ public class AddressBook implements Service {
 
 		} else {
 
-			for (int select = 0; select < numberofaddressbook; select++) {
+			for (int select = 0; select < i; select++) {
 				System.out.println(select + " " + addressbook[select]);
 			}
 			System.out.println("Please Select Your address book");
@@ -91,7 +91,7 @@ public class AddressBook implements Service {
 
 	public void display() {
 
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
+		for (int select_key = 0; select_key < i; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
 
@@ -100,22 +100,29 @@ public class AddressBook implements Service {
 		String j = addressbook[selected_key];
 
 		List<Person> a = map.get(j);
-		
+		System.out.println(a);
 
-		 
-		  System.out.println("Firstname \tLastname \tAddress \tCity \t\tState \t\tZIP \t\tPhone \n");
-		 
-		 for(int print=0;print<a.size();print++)
-		 {
-			 System.out.println(a);
-		 }
-		 
-		
+		/*
+		 * for (Entry<String, List<Person>> entry : map.entrySet()) {
+		 * 
+		 * String key = entry.getKey();
+		 * 
+		 * List<Person> value = entry.getValue();
+		 * 
+		 * System.out.
+		 * println("Firstname \tLastname \tAddress \tCity \t\tState \t\tZIP \t\tPhone \n"
+		 * );
+		 * 
+		 * for(Person aString : value)
+		 * 
+		 * { System.out.println(aString); } }
+		 */
+
 	}
 
 	public void search() 
 	{   
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
+		for (int select_key = 0; select_key < i; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
 
@@ -128,9 +135,9 @@ public class AddressBook implements Service {
 		String name = scanner.next();
 
 		for (int i = 0; i < a.size(); i++) {
-			String str = map.get(j).get(i).getFirstname();
+			String str = map.get(selected_key).get(i).getFirstname();
 			if (str.equalsIgnoreCase(name)) {
-				System.out.println(map.get(j).get(i));
+				System.out.println(map.get(selected_key).get(i));
 				return;
 			}
 			System.out.println("Contact Not Found");
@@ -139,7 +146,7 @@ public class AddressBook implements Service {
 
 	public void delete() {
 		
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
+		for (int select_key = 0; select_key < i; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
 
@@ -153,11 +160,11 @@ public class AddressBook implements Service {
 		String name = scanner.nextLine();
 		// int size=map.size();
 		for (int i = 0; i < a.size(); i++) {
-			String str = map.get(j).get(i).getPhone();
+			String str = map.get(selected_key).get(i).getPhone();
 
 			if (str.equals(name)) {
-				list.remove(map.get(j).get(i));
-				System.out.println(map.get(j));
+				list.remove(map.get(selected_key).get(i));
+				System.out.println(map.get(selected_key));
 				return;
 
 			}
@@ -171,21 +178,12 @@ public class AddressBook implements Service {
 	public void update() {
 		int ch = 0;
 		char choice;
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
-			System.out.println(select_key + " " + addressbook[select_key]);
-		}
-
-		System.out.println("Please Select the Key");
-		int selected_key = scanner.nextInt();
-		String j = addressbook[selected_key];
-
-		List<Person> a = map.get(j);
 		System.out.println("Enter the phone number for updation");
 		String phone = scanner.next();
-		for (int i = 0; i < a.size(); i++) {
-			String str = map.get(selected_key).get(i).getPhone();
+		for (int i = 0; i < list.size(); i++) {
+			String str = map.get(key).get(i).getPhone();
 			if (str.equalsIgnoreCase(phone)) {
-				Person obj = map.get(selected_key).get(i);
+				Person obj = map.get(key).get(i);
 				System.out.println("Hi User, Please select field you need to edit..!");
 				do {
 					System.out.println("1. Change Address");
@@ -242,16 +240,7 @@ public class AddressBook implements Service {
 	}
 
 	public void sortbyname() {
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
-			System.out.println(select_key + " " + addressbook[select_key]);
-		}
-
-		System.out.println("Please Select the Key");
-		int selected_key = scanner.nextInt();
-		String j = addressbook[selected_key];
-
-		
-		List<Person> arraylist = map.get(j);
+		List<Person> arraylist = map.get(key);
 		Collections.sort(arraylist, Person.sortbyname);
 
 		for (Person str : arraylist)
@@ -264,16 +253,7 @@ public class AddressBook implements Service {
 
 	public void sortbyzip() {
 		{
-			for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
-				System.out.println(select_key + " " + addressbook[select_key]);
-			}
-
-			System.out.println("Please Select the Key");
-			int selected_key = scanner.nextInt();
-			String j = addressbook[selected_key];
-
-		//	List<Person> a = map.get(j);
-			List<Person> arraylist = map.get(j);
+			List<Person> arraylist = map.get(key);
 			Collections.sort(arraylist, Person.sortbyzip);
 
 			for (Person str : arraylist)
@@ -289,10 +269,10 @@ public class AddressBook implements Service {
 	public void createaddressbook() {
 
 		System.out.println("Enter the Name of Address Book you need to create");
-		addressbook[numberofaddressbook] = scanner.next();
+		addressbook[i] = scanner.next();
 
-		map.put(addressbook[numberofaddressbook], new LinkedList<Person>());
-		numberofaddressbook++;
+		map.put(addressbook[i], new LinkedList<Person>());
+		i++;
 		System.out.println("Address Book Created");
 
 	}
