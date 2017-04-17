@@ -8,7 +8,11 @@ import com.bridgelabz.service.Service;
 
 import java.io.File;
 
-public class AddressBook implements Service {
+public class AddressBook implements Service 
+{
+	/*In this class we actual provide a implementation or logic of all the interface presents in the service interface,
+	this class can also said to be concrete class*/
+	
 	int numberofaddressbook = 0;
 	List<Person> list = new LinkedList<Person>();
 	Map<String, List<Person>> map = new HashMap<String, List<Person>>();
@@ -23,27 +27,37 @@ public class AddressBook implements Service {
 
 	@Override
 
-	public void addperson() {
-		if (numberofaddressbook == 0) {
+	public void addperson() 
+	{
+/*		this method is implementation of interface declared in service this class is used to add person before adding contact address book must be present 
+		if not present it will pop up to create new address book after creating new address book it will add person by details provided by users and add to specified address book*/
+		if (numberofaddressbook == 0)
+		{
 			System.out.println("There is No Address Book Present, Do you want to create than press 1...! ");
 			int press = scanner.nextInt();
 
-			if (press == 1) {
+			if (press == 1) 
+			{
 				createaddressbook();
-
-			} else {
+			
+			} 
+			else 
+			{
 				return;
 			}
 
-		} else {
-
-			for (int select = 0; select < numberofaddressbook; select++) {
-				System.out.println(select + " " + addressbook[select]);
-			}
-			System.out.println("Please Select Your address book");
-			int select = scanner.nextInt();
-			key = addressbook[select];
 		}
+		 
+		
+
+		for (int select = 0; select < numberofaddressbook; select++) 
+		{
+		System.out.println(select + " " + addressbook[select]);
+		}
+		System.out.println("Please Select Your address book");
+		int select = scanner.nextInt();
+		key = addressbook[select];
+		
 
 		person = new Person();
 
@@ -78,18 +92,16 @@ public class AddressBook implements Service {
 
 		List<Person> a = map.get(key);
 
-		// System.out.println(person.toString());
+		
 		a.add(person);
 		map.put(key, a);
 
-		// Map1.put(slot, list[slot]);
-		// list[slot].add(results[i]);
-
-		// System.out.println(map.get(key));
-
+		
 	}
 
-	public void display() {
+	public void display() 
+	{
+		/*this method is used to define a interface in which we can display the contacts of specified address book*/
 
 		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
@@ -105,9 +117,10 @@ public class AddressBook implements Service {
 		 
 		  System.out.println("Firstname \tLastname \tAddress \tCity \t\tState \t\tZIP \t\tPhone \n");
 		 
-		 for(int print=0;print<a.size();print++)
+		 
+		 for(int k=0;k<a.size();k++)
 		 {
-			 System.out.println(a);
+			 System.out.println(map.get(j).get(k));
 		 }
 		 
 		
@@ -115,6 +128,7 @@ public class AddressBook implements Service {
 
 	public void search() 
 	{   
+		/*this method is used to search specified contact from specified address book and print it details on console*/
 		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
@@ -137,7 +151,10 @@ public class AddressBook implements Service {
 		}
 	}
 
-	public void delete() {
+	public void delete() 
+	{
+		/*this method is used to define a delete function in which a specific contact can be deleted from the specific address book*/
+		
 		
 		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
@@ -168,7 +185,9 @@ public class AddressBook implements Service {
 
 	}
 
-	public void update() {
+	public void update() 
+	{
+		/*this method is used to to update the details of the specified contact from specified address book*/
 		int ch = 0;
 		char choice;
 		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
@@ -241,7 +260,9 @@ public class AddressBook implements Service {
 		}
 	}
 
-	public void sortbyname() {
+	public void sortbyname() 
+	{
+	/*	this method is used to sort the specified address book by name*/
 		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
@@ -263,6 +284,7 @@ public class AddressBook implements Service {
 	}
 
 	public void sortbyzip() {
+		/*This method is used to sort the specified address book by zipcode given by user*/
 		{
 			for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
 				System.out.println(select_key + " " + addressbook[select_key]);
@@ -287,6 +309,7 @@ public class AddressBook implements Service {
 	}
 
 	public void createaddressbook() {
+		/*This method is used to create a address book with specified name*/
 
 		System.out.println("Enter the Name of Address Book you need to create");
 		addressbook[numberofaddressbook] = scanner.next();
