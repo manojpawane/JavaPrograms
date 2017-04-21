@@ -111,7 +111,7 @@ public class AddressBook implements Service
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream("/home/bridgeit/Desktop/store.ser");
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);	
 			oos.writeObject(map);
 			oos.flush();
 			oos.close();
@@ -192,7 +192,9 @@ public class AddressBook implements Service
 
 		System.out.println("Enter the key");
 		String j=scanner.next();
+		fileReader();
 		List<Person> a=map.get(j);
+		
 		System.out.println("Enter the First name you want to search");
 		String name = scanner.next();
 
@@ -210,34 +212,51 @@ public class AddressBook implements Service
 	{
 		/*this method is used to define a delete function in which a specific contact can be deleted from the specific address book*/
 		
-		
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
+		String keys;
+	/*	for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
 
 		System.out.println("Please Select the Key");
 		int selected_key = scanner.nextInt();
-		String j = addressbook[selected_key];
-
-		List<Person> a = map.get(j);
+		String j = addressbook[selected_key];*/
+		
+		System.out.println("Enter the key");
+			keys=scanner.next();
+		fileReader();
+		 list = map.get(keys);
 		
 		System.out.println("Enter the number you need to delete");
-		String name = scanner.nextLine();
-		// int size=map.size();
-		for (int i = 0; i < a.size(); i++) {
-			String str = map.get(j).get(i).getPhone();
-
-			if (str.equals(name)) {
-				list.remove(map.get(j).get(i));
-				fileWriter();
-				System.out.println(map.get(j));
-				return;
-
+		String number = scanner.next();
+//		// int size=map.size();
+//		for (int i = 0; i < a.size(); i++) 
+//		{
+//			
+//			String str = map.get(keys).get(i).getPhone();
+//			//System.out.println(str);
+//
+//			if (str.equals(number)) 
+//			{
+//				
+//				list.remove(a.get(i));
+//				fileWriter();
+//				fileReader();
+//				System.out.println(map.get(keys));
+//				return;
+//
+//			}
+//
+//		}
+		for(int i=0;i<list.size();i++)
+		{
+			if(number.equals(list.get(i).getPhone()))
+			{
+				list.remove(i);
 			}
-
 		}
 
-		System.out.println("Not Present");
+		fileWriter();
+
 
 	}
 
@@ -246,21 +265,31 @@ public class AddressBook implements Service
 		/*this method is used to to update the details of the specified contact from specified address book*/
 		int ch = 0;
 		char choice;
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
+/*		for (int select_key = 0; select_key < numberofaddressbook; select_key++) 
+		{
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
 
+		//fileReader();
+		
+		
 		System.out.println("Please Select the Key");
 		int selected_key = scanner.nextInt();
-		String j = addressbook[selected_key];
-
-		List<Person> a = map.get(j);
+		String j = addressbook[selected_key];*/
+		
+		System.out.println("Enter the Key");
+		String keys=scanner.next();
+		fileReader();
+		List<Person> a = map.get(keys); 
+		System.out.println(a);
 		System.out.println("Enter the phone number for updation");
 		String phone = scanner.next();
-		for (int i = 0; i < a.size(); i++) {
-			String str = map.get(selected_key).get(i).getPhone();
-			if (str.equalsIgnoreCase(phone)) {
-				Person obj = map.get(selected_key).get(i);
+		for (int i = 0; i < a.size(); i++) 
+		{
+			String str = map.get(keys).get(i).getPhone();
+			if (str.equalsIgnoreCase(phone)) 
+			{
+				Person obj = map.get(keys).get(i);
 				System.out.println("Hi User, Please select field you need to edit..!");
 				do {
 					System.out.println("1. Change Address");
@@ -271,7 +300,8 @@ public class AddressBook implements Service
 
 					ch = scanner.nextInt();
 
-					switch (ch) {
+					switch (ch) 
+					{
 					case 1:
 						System.out.println("Enter your Address");
 						String address = scanner.next();
@@ -314,7 +344,9 @@ public class AddressBook implements Service
 					choice = scanner.next().charAt(0);
 
 				} while (choice == 'Y' || choice == 'y');
-			} else {
+			} 
+			else 
+			{
 				System.out.println("Contact doesn't exist");
 			}
 

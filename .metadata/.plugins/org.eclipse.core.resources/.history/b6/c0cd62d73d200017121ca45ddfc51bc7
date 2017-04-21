@@ -1,7 +1,0 @@
-package com.bridgelabz.model;
-
-public interface Service 
-{
-	public String addperson();
-
-}
