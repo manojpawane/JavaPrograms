@@ -1,8 +1,9 @@
 package com.bridgelabz.model;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Person {
+public class Person implements Serializable{
 
 	@Override
 	public String toString() {

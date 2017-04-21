@@ -1,5 +1,7 @@
 package com.bridgelabz.service;
 
+import java.io.IOException;
+
 public interface Service 
 {
 	

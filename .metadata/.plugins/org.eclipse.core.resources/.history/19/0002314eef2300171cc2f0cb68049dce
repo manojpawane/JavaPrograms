@@ -1,0 +1,16 @@
+package collections;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Collection1ArrayList 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList list=new ArrayList();
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter the data in array list");
+		
+	}
+
+}

@@ -1,17 +1,21 @@
 package com.bridgelabz.implementation;
 
 import java.util.*;
+import java.io.*;
 import java.util.Map.Entry;
+import java.util.concurrent.ExecutionException;
+
+import javax.tools.FileObject;
 
 import com.bridgelabz.model.Person;
 import com.bridgelabz.service.Service;
-
-import java.io.File;
 
 public class AddressBook implements Service 
 {
 	/*In this class we actual provide a implementation or logic of all the interface presents in the service interface,
 	this class can also said to be concrete class*/
+	
+	  
 	
 	int numberofaddressbook = 0;
 	List<Person> list = new LinkedList<Person>();
@@ -27,8 +31,9 @@ public class AddressBook implements Service
 
 	@Override
 
-	public void addperson() 
+	public void addperson()
 	{
+		
 /*		this method is implementation of interface declared in service this class is used to add person before adding contact address book must be present 
 		if not present it will pop up to create new address book after creating new address book it will add person by details provided by users and add to specified address book*/
 		if (numberofaddressbook == 0)
@@ -58,7 +63,7 @@ public class AddressBook implements Service
 		int select = scanner.nextInt();
 		key = addressbook[select];
 		
-
+		
 		person = new Person();
 
 		// TODO Auto-generated method stub
@@ -95,15 +100,48 @@ public class AddressBook implements Service
 		
 		a.add(person);
 		map.put(key, a);
+		fileWriter();
+	   
+             
 
 		
 	}
+	public void fileWriter()
+	{
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream("/home/bridgeit/Desktop/store.ser");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(map);
+			oos.flush();
+			oos.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	      
+	}
+	public void fileReader()
+	{
+		try {
+			FileInputStream fileInputStream=new FileInputStream("/home/bridgeit/Desktop/store.ser");
+			ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
+			 map = (HashMap) objectInputStream.readObject();
+			 objectInputStream.close();
+			 fileInputStream.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public void display() 
+	
 	{
+		fileReader();	
 		/*this method is used to define a interface in which we can display the contacts of specified address book*/
-
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
+         
+/*		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
 
@@ -113,8 +151,9 @@ public class AddressBook implements Service
 
 		List<Person> a = map.get(j);
 		
-
 		 
+	 
+	
 		  System.out.println("Firstname \tLastname \tAddress \tCity \t\tState \t\tZIP \t\tPhone \n");
 		 
 		 
@@ -122,6 +161,17 @@ public class AddressBook implements Service
 		 {
 			 System.out.println(map.get(j).get(k));
 		 }
+*/		
+		
+		System.out.println("Enter the key");
+		String keys=scanner.next();
+		List<Person> a=map.get(keys);
+		
+		 System.out.println("Firstname \tLastname \tAddress \tCity \t\tState \t\tZIP \t\tPhone \n");
+		for(int i=0;i<a.size();i++)
+		{
+			System.out.println(a.get(i));
+		}
 		 
 		
 	}
@@ -129,15 +179,20 @@ public class AddressBook implements Service
 	public void search() 
 	{   
 		/*this method is used to search specified contact from specified address book and print it details on console*/
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
+	/*	for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
 			System.out.println(select_key + " " + addressbook[select_key]);
 		}
-
-		System.out.println("Please Select the Key");
+*/
+	/*	System.out.println("Please Select the Key");
 		int selected_key = scanner.nextInt();
 		String j = addressbook[selected_key];
 
-		List<Person> a = map.get(j);
+		List<Person> a = map.get(j);*/
+		
+
+		System.out.println("Enter the key");
+		String j=scanner.next();
+		List<Person> a=map.get(j);
 		System.out.println("Enter the First name you want to search");
 		String name = scanner.next();
 
@@ -174,6 +229,7 @@ public class AddressBook implements Service
 
 			if (str.equals(name)) {
 				list.remove(map.get(j).get(i));
+				fileWriter();
 				System.out.println(map.get(j));
 				return;
 
@@ -220,30 +276,35 @@ public class AddressBook implements Service
 						System.out.println("Enter your Address");
 						String address = scanner.next();
 						obj.setAddress(address);
+						fileWriter();
 						System.out.println("Address Updated");
 						break;
 					case 2:
 						System.out.println("Enter your City ");
 						String city = scanner.next();
 						obj.setCity(city);
+						fileWriter();
 						System.out.println("City Updated");
 						break;
 					case 3:
 						System.out.println("Enter your State");
 						String state = scanner.next();
 						obj.setState(state);
+						fileWriter();
 						System.out.println("State Updated");
 						break;
 					case 4:
 						System.out.println("Enter Your Zipcode");
 						String zipcode = scanner.next();
 						obj.setZip(zipcode);
+						fileWriter();
 						System.out.println("Zipcode Updated");
 						break;
 					case 5:
 						System.out.println("Enter Phone Number");
 						String phone1 = scanner.next();
 						obj.setPhone(phone1);
+						fileWriter();
 						System.out.println("Phone Number Updated");
 						break;
 
@@ -274,6 +335,7 @@ public class AddressBook implements Service
 		
 		List<Person> arraylist = map.get(j);
 		Collections.sort(arraylist, Person.sortbyname);
+		fileWriter();
 
 		for (Person str : arraylist)
 
@@ -297,7 +359,7 @@ public class AddressBook implements Service
 		//	List<Person> a = map.get(j);
 			List<Person> arraylist = map.get(j);
 			Collections.sort(arraylist, Person.sortbyzip);
-
+			fileWriter();
 			for (Person str : arraylist)
 
 			{
