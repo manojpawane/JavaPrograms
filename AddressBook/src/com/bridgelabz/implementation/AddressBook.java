@@ -38,7 +38,7 @@ public class AddressBook implements Service
 /*		this method is implementation of interface declared in service this class is used to add person before adding contact address book must be present 
 		if not present it will pop up to create new address book after creating new address book it will add person by details provided by users and add to specified address book*/
 		fileReader();
-	/*	if(map.get(key)==null)
+		if(map.get(key)==null)
 		{
 			System.out.println("There is No Address Book Present, Do you want to create than press 1...! ");
 			int press = scanner.nextInt();
@@ -54,14 +54,30 @@ public class AddressBook implements Service
 				return;
 			}
 
-		}*/
+		}
 		 
 		
 
 		for (int select = 0; select < numberofaddressbook; select++) 
 		{
 		System.out.println(select + " " + addressbook[select]);
+		}	/*	if(map.get(key)==null)
+		{
+		System.out.println("There is No Address Book Present, Do you want to create than press 1...! ");
+		int press = scanner.nextInt();
+
+		if (press == 1) 
+		{
+			createaddressbook();
+			
+		
+		} 
+		else 
+		{
+			return;
 		}
+
+	}*/
 		System.out.println("Please Select Your address book");
 		int select = scanner.nextInt();
 		key = addressbook[select];
@@ -352,8 +368,9 @@ public class AddressBook implements Service
 		addressbook[numberofaddressbook] = scanner.next();
 
 		map.put(addressbook[numberofaddressbook], new LinkedList<Person>());
-		fileWriter();
+		
 		numberofaddressbook++;
+		fileWriter();
 		System.out.println("Address Book Created");
 
 	}
