@@ -41,7 +41,7 @@ public class Controller
 		}
 		public void sortbyname()
 		{
-			service.sortbyzip();
+			service.sortbyname();
 		}
 		
 		public void sortbyzip()

@@ -38,7 +38,7 @@ public class AddressBook implements Service
 /*		this method is implementation of interface declared in service this class is used to add person before adding contact address book must be present 
 		if not present it will pop up to create new address book after creating new address book it will add person by details provided by users and add to specified address book*/
 		fileReader();
-		if(map.get(key)==null)
+		if(numberofaddressbook==0)
 		{
 			System.out.println("There is No Address Book Present, Do you want to create than press 1...! ");
 			int press = scanner.nextInt();
@@ -143,12 +143,13 @@ public class AddressBook implements Service
 		}
 	      
 	}
-	public void fileReader()
+	public Map<String, List<Person>> fileReader()
 	{
 		try {
 			FileInputStream fileInputStream=new FileInputStream("/home/bridgeit/Desktop/store.ser");
 			ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
 			 map = (HashMap) objectInputStream.readObject();
+			 
 			 addressbook=(String[]) objectInputStream.readObject();
 			 numberofaddressbook=objectInputStream.readInt();
 			 key=(String) objectInputStream.readObject();
@@ -158,6 +159,7 @@ public class AddressBook implements Service
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return map;
 	}
 
 	public void display() 
@@ -236,7 +238,7 @@ public class AddressBook implements Service
 		char choice;
 
 		
-		System.out.println("Enter the Key");
+		System.out.println("LastnameEnter the Key");
 		String keys=scanner.next();
 		fileReader();
 		List<Person> a = map.get(keys); 
@@ -314,42 +316,45 @@ public class AddressBook implements Service
 
 	public void sortbyname() 
 	{
+		fileReader();
 	/*	this method is used to sort the specified address book by name*/
-		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
-			System.out.println(select_key + " " + addressbook[select_key]);
+		for (int select = 0; select < numberofaddressbook; select++) 
+		{
+		System.out.println(select + " " + addressbook[select]);
 		}
-
-		System.out.println("Please Select the Key");
-		int selected_key = scanner.nextInt();
-		String j = addressbook[selected_key];
-
 		
-		List<Person> arraylist = map.get(j);
+		System.out.println("Please Select Your address book");
+		int select = scanner.nextInt();
+		Object keys = addressbook[select];
+		
+		List<Person> arraylist = map.get(keys);
 		Collections.sort(arraylist, Person.sortbyname);
 		fileWriter();
-
 		for (Person str : arraylist)
 
 		{
 			System.out.println(str);
 		}
+		
 
 	}
 
 	public void sortbyzip() {
+		fileReader();
 		/*This method is used to sort the specified address book by zipcode given by user*/
 		{
-			for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
-				System.out.println(select_key + " " + addressbook[select_key]);
+			for (int select = 0; select < numberofaddressbook; select++) 
+			{
+			System.out.println(select + " " + addressbook[select]);
 			}
-
-			System.out.println("Please Select the Key");
-			int selected_key = scanner.nextInt();
-			String j = addressbook[selected_key];
-
+			
+			System.out.println("Please Select Your address book");
+			int select = scanner.nextInt();
+			Object keys = addressbook[select];
+			
 		//	List<Person> a = map.get(j);
-			List<Person> arraylist = map.get(j);
-			Collections.sort(arraylist, Person.sortbyzip);
+			List<Person> arraylist = map.get(keys);
+			Collections.sort(arraylist, Person.sortbyname);
 			fileWriter();
 			for (Person str : arraylist)
 

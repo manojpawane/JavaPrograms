@@ -49,7 +49,7 @@ public class Application {
 
 			}
 
-		} while (ch != 8);
+		} while (ch != 9);
 
 		// controller.addperson();
 

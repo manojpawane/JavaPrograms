@@ -78,8 +78,8 @@ public class Person implements Serializable{
 	public static Comparator<Person> sortbyname = new Comparator<Person>() {
 
 		public int compare(Person s1, Person s2) {
-			String FirstName1 = s1.getFirstname().toUpperCase();
-			String FirstName2 = s2.getFirstname().toUpperCase();
+			String FirstName1 = (String)s1.getLastname();
+			String FirstName2 = (String)s2.getLastname();
 
 			// ascending order
 			return FirstName1.compareTo(FirstName2);
