@@ -27,7 +27,8 @@ public class AddressBook implements Service
 	Scanner scanner = new Scanner(System.in);
 	String value = "";
 	// LinkedList key=new LinkedList();
-	static String key = "";
+	
+	 String key = "";
 
 	@Override
 
@@ -36,7 +37,8 @@ public class AddressBook implements Service
 		
 /*		this method is implementation of interface declared in service this class is used to add person before adding contact address book must be present 
 		if not present it will pop up to create new address book after creating new address book it will add person by details provided by users and add to specified address book*/
-		if (numberofaddressbook == 0)
+		fileReader();
+	/*	if(map.get(key)==null)
 		{
 			System.out.println("There is No Address Book Present, Do you want to create than press 1...! ");
 			int press = scanner.nextInt();
@@ -44,6 +46,7 @@ public class AddressBook implements Service
 			if (press == 1) 
 			{
 				createaddressbook();
+				
 			
 			} 
 			else 
@@ -51,7 +54,7 @@ public class AddressBook implements Service
 				return;
 			}
 
-		}
+		}*/
 		 
 		
 
@@ -113,6 +116,9 @@ public class AddressBook implements Service
 			fos = new FileOutputStream("/home/bridgeit/Desktop/store.ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);	
 			oos.writeObject(map);
+			oos.writeObject(addressbook);
+			oos.writeInt(numberofaddressbook);
+			oos.writeObject(key);
 			oos.flush();
 			oos.close();
 		} catch (Exception e) {
@@ -127,6 +133,9 @@ public class AddressBook implements Service
 			FileInputStream fileInputStream=new FileInputStream("/home/bridgeit/Desktop/store.ser");
 			ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
 			 map = (HashMap) objectInputStream.readObject();
+			 addressbook=(String[]) objectInputStream.readObject();
+			 numberofaddressbook=objectInputStream.readInt();
+			 key=(String) objectInputStream.readObject();
 			 objectInputStream.close();
 			 fileInputStream.close();
 		} catch (Exception e) {
@@ -141,27 +150,7 @@ public class AddressBook implements Service
 		fileReader();	
 		/*this method is used to define a interface in which we can display the contacts of specified address book*/
          
-/*		for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
-			System.out.println(select_key + " " + addressbook[select_key]);
-		}
-
-		System.out.println("Please Select the Key");
-		int selected_key = scanner.nextInt();
-		String j = addressbook[selected_key];
-
-		List<Person> a = map.get(j);
 		
-		 
-	 
-	
-		  System.out.println("Firstname \tLastname \tAddress \tCity \t\tState \t\tZIP \t\tPhone \n");
-		 
-		 
-		 for(int k=0;k<a.size();k++)
-		 {
-			 System.out.println(map.get(j).get(k));
-		 }
-*/		
 		
 		System.out.println("Enter the key");
 		String keys=scanner.next();
@@ -179,16 +168,6 @@ public class AddressBook implements Service
 	public void search() 
 	{   
 		/*this method is used to search specified contact from specified address book and print it details on console*/
-	/*	for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
-			System.out.println(select_key + " " + addressbook[select_key]);
-		}
-*/
-	/*	System.out.println("Please Select the Key");
-		int selected_key = scanner.nextInt();
-		String j = addressbook[selected_key];
-
-		List<Person> a = map.get(j);*/
-		
 
 		System.out.println("Enter the key");
 		String j=scanner.next();
@@ -213,13 +192,6 @@ public class AddressBook implements Service
 		/*this method is used to define a delete function in which a specific contact can be deleted from the specific address book*/
 		
 		String keys;
-	/*	for (int select_key = 0; select_key < numberofaddressbook; select_key++) {
-			System.out.println(select_key + " " + addressbook[select_key]);
-		}
-
-		System.out.println("Please Select the Key");
-		int selected_key = scanner.nextInt();
-		String j = addressbook[selected_key];*/
 		
 		System.out.println("Enter the key");
 			keys=scanner.next();
@@ -228,25 +200,6 @@ public class AddressBook implements Service
 		
 		System.out.println("Enter the number you need to delete");
 		String number = scanner.next();
-//		// int size=map.size();
-//		for (int i = 0; i < a.size(); i++) 
-//		{
-//			
-//			String str = map.get(keys).get(i).getPhone();
-//			//System.out.println(str);
-//
-//			if (str.equals(number)) 
-//			{
-//				
-//				list.remove(a.get(i));
-//				fileWriter();
-//				fileReader();
-//				System.out.println(map.get(keys));
-//				return;
-//
-//			}
-//
-//		}
 		for(int i=0;i<list.size();i++)
 		{
 			if(number.equals(list.get(i).getPhone()))
@@ -265,17 +218,7 @@ public class AddressBook implements Service
 		/*this method is used to to update the details of the specified contact from specified address book*/
 		int ch = 0;
 		char choice;
-/*		for (int select_key = 0; select_key < numberofaddressbook; select_key++) 
-		{
-			System.out.println(select_key + " " + addressbook[select_key]);
-		}
 
-		//fileReader();
-		
-		
-		System.out.println("Please Select the Key");
-		int selected_key = scanner.nextInt();
-		String j = addressbook[selected_key];*/
 		
 		System.out.println("Enter the Key");
 		String keys=scanner.next();
@@ -409,6 +352,7 @@ public class AddressBook implements Service
 		addressbook[numberofaddressbook] = scanner.next();
 
 		map.put(addressbook[numberofaddressbook], new LinkedList<Person>());
+		fileWriter();
 		numberofaddressbook++;
 		System.out.println("Address Book Created");
 
